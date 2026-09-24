@@ -1,6 +1,5 @@
 <layouts>
 
- <!-- Layout principale: azioni generali + accesso alle sezioni -->
  <layout name="root">
   <row>
    <button type="voicerec" label="Nota vocale" />
@@ -8,45 +7,110 @@
    <button type="textnote" label="Nota testo" />
   </row>
   <row>
-   <button type="page" label="Avvistamento" targetlayout="avvistamento" />
+   <button type="page" label="Avvistamento" targetlayout="tipocontatto" />
    <button type="page" label="Segni indiretti" targetlayout="segni" />
-   <button type="page" label="Contesto" targetlayout="contesto" />
+   <button type="page" label="Sessione/Contesto" targetlayout="contesto" />
   </row>
  </layout>
 
- <!-- Avvistamenti diretti -->
- <layout name="avvistamento">
+ <!-- TIPO CONTATTO: Visto / Solo udito -->
+ <layout name="tipocontatto">
+  <row>
+   <button type="page" label="Contatto visivo" targetlayout="situazione" />
+   <button type="page" label="Solo udito (bramito)" targetlayout="udito" />
+  </row>
+  <row>
+   <button type="textnote" label="Totale cervi avvistati" />
+  </row>
+ </layout>
+
+ <!-- SE SOLO UDITO -->
+ <layout name="udito">
+  <row>
+   <button type="tag" label="Maschio adulto (bramito)" />
+   <button type="tag" label="Maschio subadulto (bramito)" />
+  </row>
+  <row>
+   <button type="page" label="Indietro" targetlayout="tipocontatto" />
+  </row>
+ </layout>
+
+ <!-- SE VISTO - SITUAZIONE OSSERVATA -->
+ <layout name="situazione">
+  <row>
+   <button type="page" label="Singolo" targetlayout="classe_singolo" />
+   <button type="tag" label="Femmina con piccolo" />
+  </row>
+  <row>
+   <button type="page" label="Gruppo matriarcale" targetlayout="comp_matriarcale" />
+   <button type="page" label="Harem" targetlayout="comp_harem" />
+   <button type="page" label="Gruppo maschile" targetlayout="comp_maschile" />
+  </row>
+  <row>
+   <button type="textnote" label="N. piccoli (se femmina con piccolo)" />
+   <button type="page" label="Indietro" targetlayout="tipocontatto" />
+  </row>
+ </layout>
+
+ <!-- SE SINGOLO - CLASSE INDIVIDUO -->
+ <layout name="classe_singolo">
   <row>
    <button type="tag" label="Maschio adulto" />
+   <button type="tag" label="Maschio subadulto" />
    <button type="tag" label="Maschio giovane" />
-   <button type="tag" label="Femmina" />
   </row>
   <row>
-   <button type="tag" label="Piccolo (cerbiatto)" />
-   <button type="tag" label="Gruppo misto" />
-   <button type="tag" label="Individuo non determinato" />
+   <button type="tag" label="Femmina adulta" />
+   <button type="tag" label="Femmina giovane" />
+   <button type="tag" label="Piccolo da solo" />
   </row>
   <row>
-   <button type="page" label="Comportamento" targetlayout="comportamento" />
-   <button type="textnote" label="Nota (n. capi, distanza)" />
+   <button type="tag" label="Indeterminato" />
+   <button type="tag" label="In bramito (solo M ad/subad)" />
+  </row>
+  <row>
+   <button type="page" label="Indietro" targetlayout="situazione" />
   </row>
  </layout>
 
- <!-- Comportamento osservato al momento dell'avvistamento -->
- <layout name="comportamento">
+ <!-- COMPOSIZIONE GRUPPI (conteggi via nota testo, ordine fisso) -->
+ <layout name="comp_matriarcale">
   <row>
-   <button type="tag" label="Al pascolo" />
-   <button type="tag" label="In movimento" />
-   <button type="tag" label="Fermo/vigile" />
+   <button type="tag" label="Gruppo matriarcale" />
   </row>
   <row>
-   <button type="tag" label="In fuga" />
-   <button type="tag" label="Bramito" />
-   <button type="page" label="Indietro" targetlayout="avvistamento" />
+   <button type="textnote" label="Composiz: Mad/Msub/Mgiov/Fad/Fgiov/Picc/Indet" />
+  </row>
+  <row>
+   <button type="page" label="Indietro" targetlayout="situazione" />
   </row>
  </layout>
 
- <!-- Segni di presenza indiretti -->
+ <layout name="comp_harem">
+  <row>
+   <button type="tag" label="Harem" />
+  </row>
+  <row>
+   <button type="textnote" label="Composiz: Mad/Msub/Mgiov/Fad/Fgiov/Indet" />
+  </row>
+  <row>
+   <button type="page" label="Indietro" targetlayout="situazione" />
+  </row>
+ </layout>
+
+ <layout name="comp_maschile">
+  <row>
+   <button type="tag" label="Gruppo maschile" />
+  </row>
+  <row>
+   <button type="textnote" label="Composiz: Adulti/Subadulti/Giovani/Indet" />
+  </row>
+  <row>
+   <button type="page" label="Indietro" targetlayout="situazione" />
+  </row>
+ </layout>
+
+ <!-- SEGNI DI PRESENZA INDIRETTI -->
  <layout name="segni">
   <row>
    <button type="tag" label="Fatte" />
@@ -64,7 +128,6 @@
   </row>
  </layout>
 
- <!-- Stato di freschezza del segno indiretto -->
  <layout name="freschezza">
   <row>
    <button type="tag" label="Fresco (oggi/ieri)" />
@@ -76,20 +139,27 @@
   </row>
  </layout>
 
- <!-- Contesto ambientale e sforzo di campionamento -->
+ <!-- SESSIONE / CONTESTO -->
  <layout name="contesto">
   <row>
-   <button type="tag" label="Inizio transetto" />
-   <button type="tag" label="Fine transetto" />
-   <button type="tag" label="Punto di osservazione" />
+   <button type="tag" label="Modalita: Transetto" />
+   <button type="tag" label="Modalita: Postazione fissa" />
+  </row>
+  <row>
+   <button type="tag" label="Inizio sessione" />
+   <button type="tag" label="Fine sessione" />
   </row>
   <row>
    <button type="tag" label="Punto acqua" />
    <button type="tag" label="Area alimentazione" />
-   <button type="tag" label="Zona di rifugio/bosco fitto" />
+   <button type="tag" label="Zona rifugio/bosco fitto" />
   </row>
   <row>
+   <button type="tag" label="Possibile ricontatto" />
    <button type="textnote" label="Meteo/condizioni" />
+  </row>
+  <row>
+   <button type="textnote" label="Operatore/Sessione n./N. scheda" />
   </row>
  </layout>
 
