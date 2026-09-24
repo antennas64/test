@@ -1,0 +1,96 @@
+<layouts>
+
+ <!-- Layout principale: azioni generali + accesso alle sezioni -->
+ <layout name="root">
+  <row>
+   <button type="voicerec" label="Nota vocale" />
+   <button type="picture" label="Foto" />
+   <button type="textnote" label="Nota testo" />
+  </row>
+  <row>
+   <button type="page" label="Avvistamento" targetlayout="avvistamento" />
+   <button type="page" label="Segni indiretti" targetlayout="segni" />
+   <button type="page" label="Contesto" targetlayout="contesto" />
+  </row>
+ </layout>
+
+ <!-- Avvistamenti diretti -->
+ <layout name="avvistamento">
+  <row>
+   <button type="tag" label="Maschio adulto" />
+   <button type="tag" label="Maschio giovane" />
+   <button type="tag" label="Femmina" />
+  </row>
+  <row>
+   <button type="tag" label="Piccolo (cerbiatto)" />
+   <button type="tag" label="Gruppo misto" />
+   <button type="tag" label="Individuo non determinato" />
+  </row>
+  <row>
+   <button type="page" label="Comportamento" targetlayout="comportamento" />
+   <button type="textnote" label="Nota (n. capi, distanza)" />
+  </row>
+ </layout>
+
+ <!-- Comportamento osservato al momento dell'avvistamento -->
+ <layout name="comportamento">
+  <row>
+   <button type="tag" label="Al pascolo" />
+   <button type="tag" label="In movimento" />
+   <button type="tag" label="Fermo/vigile" />
+  </row>
+  <row>
+   <button type="tag" label="In fuga" />
+   <button type="tag" label="Bramito" />
+   <button type="page" label="Indietro" targetlayout="avvistamento" />
+  </row>
+ </layout>
+
+ <!-- Segni di presenza indiretti -->
+ <layout name="segni">
+  <row>
+   <button type="tag" label="Fatte" />
+   <button type="tag" label="Impronte" />
+   <button type="tag" label="Brucatura" />
+  </row>
+  <row>
+   <button type="tag" label="Fregone (corna su tronco)" />
+   <button type="tag" label="Insoglio (pozza di fango)" />
+   <button type="tag" label="Carcassa/resti" />
+  </row>
+  <row>
+   <button type="page" label="Freschezza segno" targetlayout="freschezza" />
+   <button type="picture" label="Foto segno" />
+  </row>
+ </layout>
+
+ <!-- Stato di freschezza del segno indiretto -->
+ <layout name="freschezza">
+  <row>
+   <button type="tag" label="Fresco (oggi/ieri)" />
+   <button type="tag" label="Recente (pochi giorni)" />
+   <button type="tag" label="Vecchio" />
+  </row>
+  <row>
+   <button type="page" label="Indietro" targetlayout="segni" />
+  </row>
+ </layout>
+
+ <!-- Contesto ambientale e sforzo di campionamento -->
+ <layout name="contesto">
+  <row>
+   <button type="tag" label="Inizio transetto" />
+   <button type="tag" label="Fine transetto" />
+   <button type="tag" label="Punto di osservazione" />
+  </row>
+  <row>
+   <button type="tag" label="Punto acqua" />
+   <button type="tag" label="Area alimentazione" />
+   <button type="tag" label="Zona di rifugio/bosco fitto" />
+  </row>
+  <row>
+   <button type="textnote" label="Meteo/condizioni" />
+  </row>
+ </layout>
+
+</layouts>
