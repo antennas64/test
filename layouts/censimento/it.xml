@@ -1,10 +1,19 @@
 <layouts>
 
-  <!-- =======================================================
-       ELAFOS V4 - ROOT
-       ======================================================= -->
+  <!-- =====================================================
+       ELAFOS V5
+       ===================================================== -->
+
+
+  <!-- ===================== PRINCIPALE ===================== -->
 
   <layout name="root">
+
+    <row>
+      <button type="page"
+              label="SESSIONE"
+              targetlayout="sessione" />
+    </row>
 
     <row>
       <button type="page"
@@ -20,21 +29,93 @@
       <button type="picture"
               label="FOTO" />
 
-      <button type="textnote"
-              label="NOTA" />
+      <button type="voicerec"
+              label="NOTA VOCALE" />
     </row>
 
     <row>
-      <button type="tag"
-              label="POSSIBILE RICONTATTO" />
+      <button type="textnote"
+              label="NOTA TESTO" />
     </row>
 
   </layout>
 
 
-  <!-- =======================================================
-       VISTO - SITUAZIONE OSSERVATA
-       ======================================================= -->
+  <!-- ===================== SESSIONE ===================== -->
+
+  <layout name="sessione">
+
+    <row>
+      <button type="page"
+              label="OPERATORE"
+              targetlayout="operatore" />
+    </row>
+
+    <row>
+      <button type="tag"
+              label="INIZIO TRANSETTO" />
+
+      <button type="tag"
+              label="FINE TRANSETTO" />
+    </row>
+
+    <row>
+      <button type="tag"
+              label="POSTAZIONE FISSA" />
+    </row>
+
+    <row>
+      <button type="voicerec"
+              label="NOTA VOCALE" />
+
+      <button type="textnote"
+              label="NOTA TESTO" />
+    </row>
+
+    <row>
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="root" />
+    </row>
+
+  </layout>
+
+
+  <!-- ===================== OPERATORE ===================== -->
+
+  <layout name="operatore">
+
+    <row>
+      <button type="tag"
+              label="ANDREA" />
+
+      <button type="tag"
+              label="ANTONIO" />
+    </row>
+
+    <row>
+      <button type="tag"
+              label="ELENA" />
+
+      <button type="tag"
+              label="ROSALBA" />
+    </row>
+
+    <row>
+      <button type="tag"
+              label="SIMONE" />
+    </row>
+
+    <row>
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="sessione" />
+    </row>
+
+  </layout>
+
+
+  <!-- ===================== VISTO ===================== -->
 
   <layout name="visto">
 
@@ -62,7 +143,9 @@
       <button type="page"
               label="GRUPPO MASCHILE"
               targetlayout="maschile" />
+    </row>
 
+    <row>
       <button type="page"
               label="INDIETRO"
               targetlayout="root" />
@@ -71,9 +154,7 @@
   </layout>
 
 
-  <!-- =======================================================
-       SOLO UDITO
-       ======================================================= -->
+  <!-- ===================== SOLO UDITO ===================== -->
 
   <layout name="udito">
 
@@ -86,9 +167,19 @@
     </row>
 
     <row>
-      <button type="textnote"
-              label="NOTA" />
+      <button type="picture"
+              label="FOTO" />
 
+      <button type="voicerec"
+              label="NOTA VOCALE" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="NOTA TESTO" />
+    </row>
+
+    <row>
       <button type="page"
               label="INDIETRO"
               targetlayout="root" />
@@ -97,9 +188,7 @@
   </layout>
 
 
-  <!-- =======================================================
-       SINGOLO - CLASSE INDIVIDUO
-       ======================================================= -->
+  <!-- ===================== SINGOLO ===================== -->
 
   <layout name="singolo">
 
@@ -136,9 +225,6 @@
     </row>
 
     <row>
-      <button type="picture"
-              label="FOTO" />
-
       <button type="page"
               label="INDIETRO"
               targetlayout="visto" />
@@ -147,9 +233,7 @@
   </layout>
 
 
-  <!-- =======================================================
-       FEMMINA CON PICCOLO
-       ======================================================= -->
+  <!-- ================= FEMMINA CON PICCOLO ================= -->
 
   <layout name="femmina_piccolo">
 
@@ -161,9 +245,14 @@
     <row>
       <button type="textnote"
               label="NUMERO PICCOLI" />
+    </row>
 
+    <row>
       <button type="picture"
               label="FOTO" />
+
+      <button type="voicerec"
+              label="NOTA VOCALE" />
     </row>
 
     <row>
@@ -175,9 +264,7 @@
   </layout>
 
 
-  <!-- =======================================================
-       GRUPPO MATRIARCALE
-       ======================================================= -->
+  <!-- ================= GRUPPO MATRIARCALE ================= -->
 
   <layout name="matriarcale">
 
@@ -188,10 +275,15 @@
 
     <row>
       <button type="textnote"
-              label="COMPOSIZIONE" />
+              label="COMPOSIZIONE GRUPPO" />
+    </row>
 
+    <row>
       <button type="picture"
               label="FOTO" />
+
+      <button type="voicerec"
+              label="NOTA VOCALE" />
     </row>
 
     <row>
@@ -203,9 +295,7 @@
   </layout>
 
 
-  <!-- =======================================================
-       HAREM
-       ======================================================= -->
+  <!-- ===================== HAREM ===================== -->
 
   <layout name="harem">
 
@@ -216,10 +306,15 @@
 
     <row>
       <button type="textnote"
-              label="COMPOSIZIONE" />
+              label="COMPOSIZIONE GRUPPO" />
+    </row>
 
+    <row>
       <button type="picture"
               label="FOTO" />
+
+      <button type="voicerec"
+              label="NOTA VOCALE" />
     </row>
 
     <row>
@@ -231,9 +326,7 @@
   </layout>
 
 
-  <!-- =======================================================
-       GRUPPO MASCHILE
-       ======================================================= -->
+  <!-- ================= GRUPPO MASCHILE ================= -->
 
   <layout name="maschile">
 
@@ -244,10 +337,15 @@
 
     <row>
       <button type="textnote"
-              label="COMPOSIZIONE" />
+              label="COMPOSIZIONE GRUPPO" />
+    </row>
 
+    <row>
       <button type="picture"
               label="FOTO" />
+
+      <button type="voicerec"
+              label="NOTA VOCALE" />
     </row>
 
     <row>
