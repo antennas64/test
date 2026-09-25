@@ -1,166 +1,325 @@
 <layouts>
 
- <layout name="root">
-  <row>
-   <button type="voicerec" label="Nota vocale" />
-   <button type="picture" label="Foto" />
-   <button type="textnote" label="Nota testo" />
-  </row>
-  <row>
-   <button type="page" label="Avvistamento" targetlayout="tipocontatto" />
-   <button type="page" label="Segni indiretti" targetlayout="segni" />
-   <button type="page" label="Sessione/Contesto" targetlayout="contesto" />
-  </row>
- </layout>
+  <!-- =========================================================
+       ELAFOS - CENSIMENTO CERVI
+       Layout principale
+       ========================================================= -->
 
- <!-- TIPO CONTATTO: Visto / Solo udito -->
- <layout name="tipocontatto">
-  <row>
-   <button type="page" label="Contatto visivo" targetlayout="situazione" />
-   <button type="page" label="Solo udito (bramito)" targetlayout="udito" />
-  </row>
-  <row>
-   <button type="textnote" label="Totale cervi avvistati" />
-  </row>
- </layout>
+  <layout name="root">
 
- <!-- SE SOLO UDITO -->
- <layout name="udito">
-  <row>
-   <button type="tag" label="Maschio adulto (bramito)" />
-   <button type="tag" label="Maschio subadulto (bramito)" />
-  </row>
-  <row>
-   <button type="page" label="Indietro" targetlayout="tipocontatto" />
-  </row>
- </layout>
+    <row>
+      <button type="page"
+              label="VISTO"
+              targetlayout="visto" />
 
- <!-- SE VISTO - SITUAZIONE OSSERVATA -->
- <layout name="situazione">
-  <row>
-   <button type="page" label="Singolo" targetlayout="classe_singolo" />
-   <button type="tag" label="Femmina con piccolo" />
-  </row>
-  <row>
-   <button type="page" label="Gruppo matriarcale" targetlayout="comp_matriarcale" />
-   <button type="page" label="Harem" targetlayout="comp_harem" />
-   <button type="page" label="Gruppo maschile" targetlayout="comp_maschile" />
-  </row>
-  <row>
-   <button type="textnote" label="N. piccoli (se femmina con piccolo)" />
-   <button type="page" label="Indietro" targetlayout="tipocontatto" />
-  </row>
- </layout>
+      <button type="page"
+              label="SOLO UDITO"
+              targetlayout="udito" />
+    </row>
 
- <!-- SE SINGOLO - CLASSE INDIVIDUO -->
- <layout name="classe_singolo">
-  <row>
-   <button type="tag" label="Maschio adulto" />
-   <button type="tag" label="Maschio subadulto" />
-   <button type="tag" label="Maschio giovane" />
-  </row>
-  <row>
-   <button type="tag" label="Femmina adulta" />
-   <button type="tag" label="Femmina giovane" />
-   <button type="tag" label="Piccolo da solo" />
-  </row>
-  <row>
-   <button type="tag" label="Indeterminato" />
-   <button type="tag" label="In bramito (solo M ad/subad)" />
-  </row>
-  <row>
-   <button type="page" label="Indietro" targetlayout="situazione" />
-  </row>
- </layout>
+    <row>
+      <button type="picture"
+              label="FOTO" />
 
- <!-- COMPOSIZIONE GRUPPI (conteggi via nota testo, ordine fisso) -->
- <layout name="comp_matriarcale">
-  <row>
-   <button type="tag" label="Gruppo matriarcale" />
-  </row>
-  <row>
-   <button type="textnote" label="Composiz: Mad/Msub/Mgiov/Fad/Fgiov/Picc/Indet" />
-  </row>
-  <row>
-   <button type="page" label="Indietro" targetlayout="situazione" />
-  </row>
- </layout>
+      <button type="textnote"
+              label="OSSERVAZIONI" />
+    </row>
 
- <layout name="comp_harem">
-  <row>
-   <button type="tag" label="Harem" />
-  </row>
-  <row>
-   <button type="textnote" label="Composiz: Mad/Msub/Mgiov/Fad/Fgiov/Indet" />
-  </row>
-  <row>
-   <button type="page" label="Indietro" targetlayout="situazione" />
-  </row>
- </layout>
+    <row>
+      <button type="tag"
+              label="POSSIBILE RICONTATTO" />
 
- <layout name="comp_maschile">
-  <row>
-   <button type="tag" label="Gruppo maschile" />
-  </row>
-  <row>
-   <button type="textnote" label="Composiz: Adulti/Subadulti/Giovani/Indet" />
-  </row>
-  <row>
-   <button type="page" label="Indietro" targetlayout="situazione" />
-  </row>
- </layout>
+      <button type="page"
+              label="SESSIONE"
+              targetlayout="sessione" />
+    </row>
 
- <!-- SEGNI DI PRESENZA INDIRETTI -->
- <layout name="segni">
-  <row>
-   <button type="tag" label="Fatte" />
-   <button type="tag" label="Impronte" />
-   <button type="tag" label="Brucatura" />
-  </row>
-  <row>
-   <button type="tag" label="Fregone (corna su tronco)" />
-   <button type="tag" label="Insoglio (pozza di fango)" />
-   <button type="tag" label="Carcassa/resti" />
-  </row>
-  <row>
-   <button type="page" label="Freschezza segno" targetlayout="freschezza" />
-   <button type="picture" label="Foto segno" />
-  </row>
- </layout>
+  </layout>
 
- <layout name="freschezza">
-  <row>
-   <button type="tag" label="Fresco (oggi/ieri)" />
-   <button type="tag" label="Recente (pochi giorni)" />
-   <button type="tag" label="Vecchio" />
-  </row>
-  <row>
-   <button type="page" label="Indietro" targetlayout="segni" />
-  </row>
- </layout>
 
- <!-- SESSIONE / CONTESTO -->
- <layout name="contesto">
-  <row>
-   <button type="tag" label="Modalita: Transetto" />
-   <button type="tag" label="Modalita: Postazione fissa" />
-  </row>
-  <row>
-   <button type="tag" label="Inizio sessione" />
-   <button type="tag" label="Fine sessione" />
-  </row>
-  <row>
-   <button type="tag" label="Punto acqua" />
-   <button type="tag" label="Area alimentazione" />
-   <button type="tag" label="Zona rifugio/bosco fitto" />
-  </row>
-  <row>
-   <button type="tag" label="Possibile ricontatto" />
-   <button type="textnote" label="Meteo/condizioni" />
-  </row>
-  <row>
-   <button type="textnote" label="Operatore/Sessione n./N. scheda" />
-  </row>
- </layout>
+  <!-- =========================================================
+       VISTO - SITUAZIONE OSSERVATA
+       ========================================================= -->
+
+  <layout name="visto">
+
+    <row>
+      <button type="page"
+              label="SINGOLO"
+              targetlayout="singolo" />
+
+      <button type="page"
+              label="FEMMINA CON PICCOLO"
+              targetlayout="femmina_piccolo" />
+    </row>
+
+    <row>
+      <button type="page"
+              label="GRUPPO MATRIARCALE"
+              targetlayout="gruppo_matriarcale" />
+
+      <button type="page"
+              label="HAREM"
+              targetlayout="harem" />
+    </row>
+
+    <row>
+      <button type="page"
+              label="GRUPPO MASCHILE"
+              targetlayout="gruppo_maschile" />
+
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="root" />
+    </row>
+
+  </layout>
+
+
+  <!-- =========================================================
+       SOLO UDITO - CLASSE STIMATA DAL BRAMITO
+       ========================================================= -->
+
+  <layout name="udito">
+
+    <row>
+      <button type="tag"
+              label="MASCHIO ADULTO" />
+
+      <button type="tag"
+              label="MASCHIO SUBADULTO" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="OSSERVAZIONI" />
+
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="root" />
+    </row>
+
+  </layout>
+
+
+  <!-- =========================================================
+       SINGOLO / INDIVIDUI NON IN GRUPPO
+       ========================================================= -->
+
+  <layout name="singolo">
+
+    <row>
+      <button type="textnote"
+              label="N. MASCHIO ADULTO" />
+
+      <button type="textnote"
+              label="N. MASCHIO SUBADULTO" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="N. MASCHIO GIOVANE" />
+
+      <button type="textnote"
+              label="N. FEMMINA ADULTA" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="N. FEMMINA GIOVANE" />
+
+      <button type="textnote"
+              label="N. PICCOLO DA SOLO" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="N. INDETERMINATO" />
+
+      <button type="textnote"
+              label="N. IN BRAMITO" />
+    </row>
+
+    <row>
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="visto" />
+    </row>
+
+  </layout>
+
+
+  <!-- =========================================================
+       FEMMINA CON PICCOLO
+       ========================================================= -->
+
+  <layout name="femmina_piccolo">
+
+    <row>
+      <button type="tag"
+              label="FEMMINA CON PICCOLO" />
+
+      <button type="textnote"
+              label="NUMERO PICCOLI" />
+    </row>
+
+    <row>
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="visto" />
+    </row>
+
+  </layout>
+
+
+  <!-- =========================================================
+       GRUPPO MATRIARCALE
+       ========================================================= -->
+
+  <layout name="gruppo_matriarcale">
+
+    <row>
+      <button type="textnote"
+              label="N. MASCHI ADULTI" />
+
+      <button type="textnote"
+              label="N. MASCHI SUBADULTI" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="N. MASCHI GIOVANI" />
+
+      <button type="textnote"
+              label="N. FEMMINE ADULTE" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="N. FEMMINE GIOVANI" />
+
+      <button type="textnote"
+              label="N. PICCOLI" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="N. INDETERMINATI" />
+
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="visto" />
+    </row>
+
+  </layout>
+
+
+  <!-- =========================================================
+       HAREM
+       ========================================================= -->
+
+  <layout name="harem">
+
+    <row>
+      <button type="textnote"
+              label="N. MASCHI ADULTI" />
+
+      <button type="textnote"
+              label="N. MASCHI SUBADULTI" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="N. MASCHI GIOVANI" />
+
+      <button type="textnote"
+              label="N. FEMMINE ADULTE" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="N. FEMMINE GIOVANI" />
+
+      <button type="textnote"
+              label="N. INDETERMINATI" />
+    </row>
+
+    <row>
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="visto" />
+    </row>
+
+  </layout>
+
+
+  <!-- =========================================================
+       GRUPPO MASCHILE
+       ========================================================= -->
+
+  <layout name="gruppo_maschile">
+
+    <row>
+      <button type="textnote"
+              label="N. ADULTI" />
+
+      <button type="textnote"
+              label="N. SUBADULTI" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="N. GIOVANI" />
+
+      <button type="textnote"
+              label="N. INDETERMINATI" />
+    </row>
+
+    <row>
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="visto" />
+    </row>
+
+  </layout>
+
+
+  <!-- =========================================================
+       SESSIONE / CONTESTO MINIMO
+       ========================================================= -->
+
+  <layout name="sessione">
+
+    <row>
+      <button type="tag"
+              label="TRANSETTO" />
+
+      <button type="tag"
+              label="POSTAZIONE FISSA" />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="OPERATORE" />
+
+      <button type="textnote"
+              label="SESSIONE N." />
+    </row>
+
+    <row>
+      <button type="textnote"
+              label="LUOGO OSSERVAZIONE" />
+
+      <button type="textnote"
+              label="TOTALE CERVI" />
+    </row>
+
+    <row>
+      <button type="page"
+              label="INDIETRO"
+              targetlayout="root" />
+    </row>
+
+  </layout>
 
 </layouts>
