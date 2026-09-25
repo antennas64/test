@@ -1,9 +1,8 @@
 <layouts>
 
-  <!-- =========================================================
-       CENSIMENTO CERVI V3
-       Layout principale
-       ========================================================= -->
+  <!-- =======================================================
+       ELAFOS V4 - ROOT
+       ======================================================= -->
 
   <layout name="root">
 
@@ -22,24 +21,20 @@
               label="FOTO" />
 
       <button type="textnote"
-              label="OSSERVAZIONI" />
+              label="NOTA" />
     </row>
 
     <row>
       <button type="tag"
               label="POSSIBILE RICONTATTO" />
-
-      <button type="page"
-              label="SESSIONE"
-              targetlayout="sessione" />
     </row>
 
   </layout>
 
 
-  <!-- =========================================================
+  <!-- =======================================================
        VISTO - SITUAZIONE OSSERVATA
-       ========================================================= -->
+       ======================================================= -->
 
   <layout name="visto">
 
@@ -56,7 +51,7 @@
     <row>
       <button type="page"
               label="GRUPPO MATRIARCALE"
-              targetlayout="gruppo_matriarcale" />
+              targetlayout="matriarcale" />
 
       <button type="page"
               label="HAREM"
@@ -66,7 +61,7 @@
     <row>
       <button type="page"
               label="GRUPPO MASCHILE"
-              targetlayout="gruppo_maschile" />
+              targetlayout="maschile" />
 
       <button type="page"
               label="INDIETRO"
@@ -76,9 +71,9 @@
   </layout>
 
 
-  <!-- =========================================================
-       SOLO UDITO - CLASSE STIMATA DAL BRAMITO
-       ========================================================= -->
+  <!-- =======================================================
+       SOLO UDITO
+       ======================================================= -->
 
   <layout name="udito">
 
@@ -92,7 +87,7 @@
 
     <row>
       <button type="textnote"
-              label="OSSERVAZIONI" />
+              label="NOTA" />
 
       <button type="page"
               label="INDIETRO"
@@ -102,45 +97,48 @@
   </layout>
 
 
-  <!-- =========================================================
-       SINGOLO / INDIVIDUI NON IN GRUPPO
-       ========================================================= -->
+  <!-- =======================================================
+       SINGOLO - CLASSE INDIVIDUO
+       ======================================================= -->
 
   <layout name="singolo">
 
     <row>
-      <button type="textnote"
-              label="N. MASCHIO ADULTO" />
+      <button type="tag"
+              label="MASCHIO ADULTO" />
 
-      <button type="textnote"
-              label="N. MASCHIO SUBADULTO" />
+      <button type="tag"
+              label="MASCHIO SUBADULTO" />
     </row>
 
     <row>
-      <button type="textnote"
-              label="N. MASCHIO GIOVANE" />
+      <button type="tag"
+              label="MASCHIO GIOVANE" />
 
-      <button type="textnote"
-              label="N. FEMMINA ADULTA" />
+      <button type="tag"
+              label="FEMMINA ADULTA" />
     </row>
 
     <row>
-      <button type="textnote"
-              label="N. FEMMINA GIOVANE" />
+      <button type="tag"
+              label="FEMMINA GIOVANE" />
 
-      <button type="textnote"
-              label="N. PICCOLO DA SOLO" />
+      <button type="tag"
+              label="PICCOLO DA SOLO" />
     </row>
 
     <row>
-      <button type="textnote"
-              label="N. INDETERMINATO" />
+      <button type="tag"
+              label="INDETERMINATO" />
 
-      <button type="textnote"
-              label="N. IN BRAMITO" />
+      <button type="tag"
+              label="IN BRAMITO" />
     </row>
 
     <row>
+      <button type="picture"
+              label="FOTO" />
+
       <button type="page"
               label="INDIETRO"
               targetlayout="visto" />
@@ -149,18 +147,23 @@
   </layout>
 
 
-  <!-- =========================================================
+  <!-- =======================================================
        FEMMINA CON PICCOLO
-       ========================================================= -->
+       ======================================================= -->
 
   <layout name="femmina_piccolo">
 
     <row>
       <button type="tag"
               label="FEMMINA CON PICCOLO" />
+    </row>
 
+    <row>
       <button type="textnote"
               label="NUMERO PICCOLI" />
+
+      <button type="picture"
+              label="FOTO" />
     </row>
 
     <row>
@@ -172,40 +175,26 @@
   </layout>
 
 
-  <!-- =========================================================
+  <!-- =======================================================
        GRUPPO MATRIARCALE
-       ========================================================= -->
+       ======================================================= -->
 
-  <layout name="gruppo_matriarcale">
+  <layout name="matriarcale">
 
     <row>
-      <button type="textnote"
-              label="N. MASCHI ADULTI" />
-
-      <button type="textnote"
-              label="N. MASCHI SUBADULTI" />
+      <button type="tag"
+              label="GRUPPO MATRIARCALE" />
     </row>
 
     <row>
       <button type="textnote"
-              label="N. MASCHI GIOVANI" />
+              label="COMPOSIZIONE" />
 
-      <button type="textnote"
-              label="N. FEMMINE ADULTE" />
+      <button type="picture"
+              label="FOTO" />
     </row>
 
     <row>
-      <button type="textnote"
-              label="N. FEMMINE GIOVANI" />
-
-      <button type="textnote"
-              label="N. PICCOLI" />
-    </row>
-
-    <row>
-      <button type="textnote"
-              label="N. INDETERMINATI" />
-
       <button type="page"
               label="INDIETRO"
               targetlayout="visto" />
@@ -214,34 +203,23 @@
   </layout>
 
 
-  <!-- =========================================================
+  <!-- =======================================================
        HAREM
-       ========================================================= -->
+       ======================================================= -->
 
   <layout name="harem">
 
     <row>
-      <button type="textnote"
-              label="N. MASCHI ADULTI" />
-
-      <button type="textnote"
-              label="N. MASCHI SUBADULTI" />
+      <button type="tag"
+              label="HAREM" />
     </row>
 
     <row>
       <button type="textnote"
-              label="N. MASCHI GIOVANI" />
+              label="COMPOSIZIONE" />
 
-      <button type="textnote"
-              label="N. FEMMINE ADULTE" />
-    </row>
-
-    <row>
-      <button type="textnote"
-              label="N. FEMMINE GIOVANI" />
-
-      <button type="textnote"
-              label="N. INDETERMINATI" />
+      <button type="picture"
+              label="FOTO" />
     </row>
 
     <row>
@@ -253,71 +231,29 @@
   </layout>
 
 
-  <!-- =========================================================
+  <!-- =======================================================
        GRUPPO MASCHILE
-       ========================================================= -->
+       ======================================================= -->
 
-  <layout name="gruppo_maschile">
+  <layout name="maschile">
 
     <row>
-      <button type="textnote"
-              label="N. ADULTI" />
-
-      <button type="textnote"
-              label="N. SUBADULTI" />
+      <button type="tag"
+              label="GRUPPO MASCHILE" />
     </row>
 
     <row>
       <button type="textnote"
-              label="N. GIOVANI" />
+              label="COMPOSIZIONE" />
 
-      <button type="textnote"
-              label="N. INDETERMINATI" />
+      <button type="picture"
+              label="FOTO" />
     </row>
 
     <row>
       <button type="page"
               label="INDIETRO"
               targetlayout="visto" />
-    </row>
-
-  </layout>
-
-
-  <!-- =========================================================
-       SESSIONE / CONTESTO MINIMO
-       ========================================================= -->
-
-  <layout name="sessione">
-
-    <row>
-      <button type="tag"
-              label="TRANSETTO" />
-
-      <button type="tag"
-              label="POSTAZIONE FISSA" />
-    </row>
-
-    <row>
-      <button type="textnote"
-              label="OPERATORE" />
-
-      <button type="textnote"
-              label="SESSIONE N." />
-    </row>
-
-    <row>
-      <button type="textnote"
-              label="LUOGO OSSERVAZIONE" />
-
-      <button type="textnote"
-              label="TOTALE CERVI" />
-    </row>
-
-    <row>
-      <button type="page"
-              label="INDIETRO"
-              targetlayout="root" />
     </row>
 
   </layout>
